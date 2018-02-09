@@ -8,7 +8,8 @@ const app = express();
 
 const apiRouter = express.Router();
 
-apiRouter.get('/', (req, res) => res.json({ api: true }));
+// apiRouter.get('/', (req, res) => res.json({ api: true }));
+// apiRouter.all('*', (req, res) => res.json({ apiAll: true }));
 
 setupMiddware(app);
 connect();
@@ -16,8 +17,11 @@ connect();
 
 app.use('/signin', signin);
 
-app.use('/api', apiRouter);
-app.get('/', (req, res) => res.json({ first: true }));
+// mount the restRouter on /api path
+app.use('/api', restRouter);
+
+// app.use('/api', apiRouter);
+// app.get('/', (req, res) => res.json({ first: true }));
 // catch all
 app.all('*', (req, res) => {
   res.json({ ok: true });
