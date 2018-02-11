@@ -8,9 +8,7 @@ const app = express();
 
 const apiRouter = express.Router();
 
-// apiRouter.get('/', (req, res) => res.json({ api: true }));
-// apiRouter.all('*', (req, res) => res.json({ apiAll: true }));
-
+// Middleware attach
 setupMiddware(app);
 connect();
 // setup basic routing for index route
@@ -18,13 +16,16 @@ connect();
 app.use('/signin', signin);
 
 // mount the restRouter on /api path
-app.use('/api', restRouter);
+app.use('/api', protect, restRouter);
 
-// app.use('/api', apiRouter);
-// app.get('/', (req, res) => res.json({ first: true }));
 // catch all
 app.all('*', (req, res) => {
   res.json({ ok: true });
 });
+
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(401).send('NOPE!');
+// });
 
 export default app;
