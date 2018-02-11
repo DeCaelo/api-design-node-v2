@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import createApiSpec from '~/apiSpecs';
 import { Song, schema } from './song.model';
 
-xdescribe('Song model', () => {
+describe('Song model', () => {
   it('should have tilte', () => {
     expect(schema.title).to.exist;
     expect(schema.title.required).to.be.an('array');
