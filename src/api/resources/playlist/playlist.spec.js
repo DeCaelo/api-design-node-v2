@@ -3,7 +3,7 @@ import chai, { expect } from 'chai';
 import { Playlist, schema } from './playlist.model';
 import mongoose from 'mongoose';
 
-xdescribe('Playlist Model', () => {
+describe('Playlist Model', () => {
   it('should have tilte', () => {
     expect(schema.title).to.exist;
     expect(schema.title.type).to.eql(String);
