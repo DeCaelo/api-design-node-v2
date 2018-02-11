@@ -1,8 +1,9 @@
-import mongoose from 'mongoose'
-mongoose.Promise = global.Promise
+import mongoose from 'mongoose';
+import appConfig from './config';
+mongoose.Promise = global.Promise;
 
-export const connect = () => {
-  return mongoose.connect('mongodb://localhost/jams', {
-    useMongoClient: true
-  })
-}
+export const connect = (config = appConfig) => {
+  return mongoose.connect(config.db.url, {
+    useMongoClient: true,
+  });
+};
