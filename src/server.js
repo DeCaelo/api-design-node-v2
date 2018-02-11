@@ -23,6 +23,8 @@ app.all('*', (req, res) => {
   res.json({ ok: true });
 });
 
+// error handling example
+
 // app.use((err, req, res, next) => {
 //   console.error(err.stack);
 //   res.status(401).send('NOPE!');
