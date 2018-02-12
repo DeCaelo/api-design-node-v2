@@ -3,7 +3,7 @@ import { userType, userResolvers } from './resources/user';
 import merge from 'lodash.merge';
 import { graphqlExpress } from 'apollo-server-express';
 
-// root definitions fop GraphQL
+// root definitions for GraphQL
 const baseSchema = `
   schema {
     query: Query
