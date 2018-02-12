@@ -9,8 +9,10 @@ export const schema = {
   passwordHash: {
     required: true,
     type: String,
-  } , { timestamps: true }),
+  },
 };
+
+const userSchema = new mongoose.Schema(schema, { timestamps: true });
 
 userSchema.methods = {
   authenticate(plaintTextPassword) {
