@@ -13,6 +13,8 @@ const newPlaylist = (_, { input }) => {
 };
 
 const updatePlaylist = (_, { input }) => {
+  // https://dmitripavlutin.com/object-rest-spread-properties-javascript/
+  // const update = input - id
   const { id, ...update } = input;
 
   return Playlist.findByIdAndUpdate(id, update, { new: true }).exec();
