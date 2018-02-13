@@ -1,7 +1,13 @@
 import { Song } from './song.model';
 
-const getSong = (_, { id }, { user }) => {
-  return Song.findById(id).exec();
+const getSong = async (_, { id }, { user }) => {
+  const song = await Song.findById(id).exec();
+
+  if (!song) {
+    throw new Error('Cannot find song with this id');
+  }
+
+  return song;
 };
 
 const allSongs = () => {
