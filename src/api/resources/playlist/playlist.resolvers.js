@@ -1,7 +1,9 @@
 import { Playlist } from './playlist.model';
 
-const getPlaylist = (_, { id }) => {
-  return Playlist.findById(id).exec();
+const getPlaylist = async (_, { id }) => {
+  const playlist = await Playlist.findById(id).exec();
+  console.log(JSON.stringify(playlist, null, 2));
+  return playlist;
 };
 
 const allPlaylists = () => {
