@@ -14,4 +14,11 @@ export const userResolvers = {
   Query: {
     getMe,
   },
+  User: {
+    friends: user => {
+      console.log('in friends');
+      // query the db for frinds of this user
+      return ['Tom', 'Destiny'];
+    },
+  },
 };
