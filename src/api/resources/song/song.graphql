@@ -35,4 +35,5 @@ extend type Query {
 extend type Mutation {
   newSong(input: NewSong!): Song!
   updateSong(input: UpdatedSong!): Song!
+  removeSong(id: ID!): Song!
 }

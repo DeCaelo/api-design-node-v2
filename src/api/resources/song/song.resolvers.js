@@ -24,6 +24,10 @@ const updateSong = (_, { input }) => {
   return Song.findByIdAndUpdate(id, update, { new: true }).exec();
 };
 
+const removeSong = (_, { id }) => {
+  return Song.findByIdAndRemove(id).exec();
+};
+
 export const songResolvers = {
   Query: {
     allSongs,
@@ -32,5 +36,6 @@ export const songResolvers = {
   Mutation: {
     newSong,
     updateSong,
+    removeSong,
   },
 };
