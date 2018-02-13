@@ -13,3 +13,7 @@ input UpdatedUser {
 type Query {
   getMe: User!
 }
+
+type Mutation {
+  updateMe(input: UpdatedUser!): User!
+}

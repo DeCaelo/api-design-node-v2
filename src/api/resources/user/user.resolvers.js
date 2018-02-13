@@ -10,6 +10,11 @@ const getMe = (_, __, { user }) => {
   };
 };
 
+const updateMe = (_, { input }, { user }) => {
+  merge(user, input);
+  return user.save();
+};
+
 export const userResolvers = {
   Query: {
     getMe,
@@ -20,5 +25,8 @@ export const userResolvers = {
       // query the db for frinds of this user
       return ['Tom', 'Destiny'];
     },
+  },
+  Mutation: {
+    updateMe,
   },
 };
