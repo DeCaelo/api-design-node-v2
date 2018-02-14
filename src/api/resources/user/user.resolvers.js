@@ -2,12 +2,7 @@ import { User } from './user.model';
 import merge from 'lodash.merge';
 
 const getMe = (_, __, { user }) => {
-  return {
-    id: 1432453,
-    username: 'hello',
-    createdAt: '12 feb 10h',
-    updatedAt: '12 feb 11h03',
-  };
+  return user;
 };
 
 const updateMe = (_, { input }, { user }) => {
@@ -24,6 +19,9 @@ export const userResolvers = {
       console.log('in friends');
       // query the db for frinds of this user
       return ['Tom', 'Destiny'];
+    },
+    playlist() {
+      return Playlist.find({}).exec();
     },
   },
   Mutation: {

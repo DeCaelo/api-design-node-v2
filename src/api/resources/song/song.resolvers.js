@@ -38,4 +38,9 @@ export const songResolvers = {
     updateSong,
     removeSong,
   },
+  Song: {
+    producer(song) {
+      return User.findOne({}).exec();
+    },
+  },
 };

@@ -4,6 +4,7 @@ type Song {
   url: String!
   album: String
   artist: String
+  producer: User!
   rating: Int!
   favorite: Boolean!
 }
