@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 createApiSpec(User, 'user', { username: 'stu', passwordHash: '1223saf' });
 
-describe.only('User', () => {
+describe('User', () => {
   let user;
   beforeEach(async () => {
     await dropDb();

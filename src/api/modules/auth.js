@@ -4,7 +4,7 @@ import config from '../../config';
 import expressJwt from 'express-jwt';
 
 const checkToken = expressJwt({ secret: config.secrets.JWT_SECRET });
-const disableAuth = false;
+// const disableAuth = false;
 
 export const signin = (req, res, next) => {
   // req.user will be there from the middleware
@@ -33,14 +33,14 @@ export const decodeToken = () => (req, res, next) => {
 };
 
 export const getFreshUser = () => async (req, res, next) => {
-  if (config.disableAuth) {
-    await User.remove();
-    req.user = await User.create({
-      username: 'student1',
-      passwordHash: '12334eefs',
-    });
-    return next();
-  }
+  // if (config.disableAuth) {
+  //   await User.remove();
+  //   req.user = await User.create({
+  //     username: 'student1',
+  //     passwordHash: '12334eefs',
+  //   });
+  //   return next();
+  // }
 
   return User.findById(req.user.id)
     .then(function(user) {
@@ -95,6 +95,6 @@ export const verifyUser = () => (req, res, next) => {
 };
 
 export const signToken = id =>
-  jwt.sign({ id }, jwtSecret, { expiresIn: '30d' });
+  jwt.sign({ id }, config.secrets.JWT_SECRET, { expiresIn: config.expireTime });
 
 export const protect = [decodeToken(), getFreshUser()];
