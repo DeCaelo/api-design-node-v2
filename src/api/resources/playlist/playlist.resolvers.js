@@ -33,6 +33,7 @@ export const playlistResolvers = {
   },
   Playlist: {
     async songs(playlist) {
+      console.log('03.getting songs');
       const populated = await playlist.populate('songs').execPopulate();
 
       return populated.songs;

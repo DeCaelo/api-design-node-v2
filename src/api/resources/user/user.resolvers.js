@@ -2,6 +2,7 @@ import { User } from './user.model';
 import merge from 'lodash.merge';
 
 const getMe = (_, __, { user }) => {
+  console.log('01.getting user');
   return user;
 };
 
@@ -21,6 +22,7 @@ export const userResolvers = {
       return ['Tom', 'Destiny'];
     },
     playlist() {
+      console.log('02.getting playlist');
       return Playlist.find({}).exec();
     },
   },

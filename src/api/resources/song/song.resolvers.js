@@ -42,5 +42,9 @@ export const songResolvers = {
     producer(song) {
       return User.findOne({}).exec();
     },
+    test() {
+      console.log('04.getting test');
+      return 'test';
+    },
   },
 };
